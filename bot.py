@@ -116,12 +116,8 @@ async def track_ip(update: Update, context: ContextTypes.DEFAULT_TYPE):
         res = requests.get(api_url, timeout=5)
         data = res.json()
         
-        if data.get("status") == "fail":
-            await update.message.reply_text(f"тЭМ Error: {data.get('message', 'Invalid IP Address')}")
-            return
-            
-        ip_report = (
-            f"ЁЯМР --- IP OSINT REPORT ---\n\n"
+      app.run_polling()
+      
             f"ЁЯОп Target IP: {data.get('query')}\n"
             f"ЁЯУН Location: {data.get('city')}, {data.get('regionName')}, {data.get('country')} (Pin: {data.get('zip')})\n"
             f"ЁЯЫ░я╕П Coordinates: Lat {data.get('lat')}, Lon {data.get('lon')}\n"
